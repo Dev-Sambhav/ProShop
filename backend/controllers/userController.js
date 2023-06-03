@@ -1,5 +1,5 @@
 import asyncHandler from "express-async-handler";
-import User from "../model/userModel.js";
+import User from "../models/userModel.js";
 import generateToken from "../utils/generateToken.js";
 
 // @desc Register User and get token
@@ -86,7 +86,7 @@ export const logoutUser = asyncHandler(async (req, res) => {
 // route GET /api/users/profile
 // access Private
 export const getUserProfile = asyncHandler(async (req, res) => {
-  const user = User.findById(req.user._id);
+  const user = await User.findById(req.user._id);
   if (user) {
     res.json({
       _id: user._id,
