@@ -8,9 +8,9 @@ import {
 } from "react-router-dom";
 import { Provider } from "react-redux";
 import "./assets/styles/index.css";
-import "./assets/styles/bootstrap.custom.css";
+import "./assets/styles/bootstrap.min.css";
 import App from "./App";
-import { CartScreen, HomeScreen, ProductScreen } from "./screens";
+import { CartScreen, HomeScreen, LoginScreen, ProductScreen, RegisterScreen } from "./screens";
 import store from "./store";
 
 const router = createBrowserRouter(
@@ -19,6 +19,8 @@ const router = createBrowserRouter(
       <Route index element={<HomeScreen />} />
       <Route path="product/:id" element={<ProductScreen />} />
       <Route path="cart" element={<CartScreen />} />
+      <Route path="login" element={<LoginScreen />} />
+      <Route path="register" element={<RegisterScreen />} />
     </Route>
   )
 );

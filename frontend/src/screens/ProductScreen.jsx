@@ -10,7 +10,7 @@ import {
   Card,
   Button,
 } from "react-bootstrap";
-import { Loader, Message, Rating } from "../components";
+import { SpinLoader, Message, Rating } from "../components";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../slices/cartSlice";
 const ProductScreen = () => {
@@ -25,12 +25,12 @@ const ProductScreen = () => {
   } = useGetSingleProductQuery(productId);
   const addToCartHandler = () => {
     dispatch(addToCart({ ...product, qty }));
-    navigate('/cart')
+    navigate("/cart");
   };
   return (
     <>
       {isLoading ? (
-        <Loader />
+        <SpinLoader />
       ) : error ? (
         <Message variant="danger">
           {error?.data?.message}||{error.error}

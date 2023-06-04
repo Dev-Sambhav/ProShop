@@ -1,12 +1,12 @@
 import { Row, Col } from "react-bootstrap";
-import { Loader, Message, Product } from "../components";
+import { SpinLoader, Message, Product } from "../components";
 import { useGetProductsQuery } from "../slices/productsApiSlice";
 const HomeScreen = () => {
   const { data: products, isLoading, error } = useGetProductsQuery();
   return (
     <>
       {isLoading ? (
-        <Loader/>
+        <SpinLoader/>
       ) : error ? (
         <div>
           <Message variant="danger">
