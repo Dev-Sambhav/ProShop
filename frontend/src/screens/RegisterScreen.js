@@ -6,8 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCredentials } from "../slices/authSlice";
 import { useRegisterMutation } from "../slices/usersApiSlice";
 import { toast } from "react-toastify";
+import { GoEye, GoEyeClosed } from "react-icons/go";
 
 const RegisterScreen = () => {
+  const [toggle, setToggle] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,6 +25,11 @@ const RegisterScreen = () => {
   const { search } = useLocation();
   const sp = new URLSearchParams(search);
   const redirect = sp.get("redirect") || "/";
+
+  // handle password toggle
+  const handleToggle = () => {
+    setToggle(!toggle);
+  };
 
   useEffect(() => {
     if (userInfo) {
@@ -80,12 +87,27 @@ const RegisterScreen = () => {
         </Form.Group>
         <Form.Group className="my-2" controlId="confirmPassword">
           <Form.Label>Confirm Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          ></Form.Control>
+          <div className="d-flex justify-content-between align-items-center position-relative">
+            <Form.Control
+              type={toggle ? "text" : "password"}
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            ></Form.Control>
+            {toggle ? (
+              <GoEye
+                className="position-absolute"
+                style={{ right: "15" }}
+                onClick={handleToggle}
+              />
+            ) : (
+              <GoEyeClosed
+                className="position-absolute"
+                style={{ right: "15" }}
+                onClick={handleToggle}
+              />
+            )}
+          </div>
         </Form.Group>
         {isLoading ? (
           <Loader />
