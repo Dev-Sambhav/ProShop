@@ -6,5 +6,6 @@ import Loader from "./Loader";
 import Message from "./Message";
 import FormContainer from "./FormContainer";
 import SpinLoader from "./SpinLoader";
+import PrivateRoute from "./PrivateRoute";
 
-export { Header, Footer, Product, Rating, Loader, Message, FormContainer, SpinLoader };
+export { Header, Footer, Product, Rating, Loader, Message, FormContainer, SpinLoader, PrivateRoute };
