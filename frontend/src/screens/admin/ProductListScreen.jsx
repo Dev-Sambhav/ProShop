@@ -17,15 +17,7 @@ const ProductListScreen = () => {
   const handleCreateProduct = async () => {
     if (window.confirm("Are you sure you want to create a new product?")) {
       try {
-        await createProduct({
-          name: "Sample Name",
-          price: 0,
-          description: "Sample Description",
-          brand: "Sample Brand",
-          category: "Sample Category",
-          countInStock: 0,
-          image: "/image/sample.jpg",
-        });
+        await createProduct();
         refetch();
       } catch (error) {
         toast.error(error?.data?.message || error.error);

@@ -1,16 +1,20 @@
 import { Row, Col } from "react-bootstrap";
 import { SpinLoader, Message, Product } from "../components";
 import { useGetProductsQuery } from "../slices/productsApiSlice";
+import { useEffect } from "react";
 const HomeScreen = () => {
-  const { data: products, isLoading, error } = useGetProductsQuery();
+  const { data: products, isLoading, error, refetch } = useGetProductsQuery();
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
   return (
     <>
       {isLoading ? (
-        <SpinLoader/>
+        <SpinLoader />
       ) : error ? (
         <div>
           <Message variant="danger">
-          {error?.data?.message}||{error.error}
+            {error?.data?.message}||{error.error}
           </Message>
         </div>
       ) : (
