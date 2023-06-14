@@ -110,6 +110,8 @@ const ProfileScreen = () => {
         <h2>My Orders</h2>
         {isLoading ? (
           <SpinLoader />
+        ) : orders.length === 0 ? (
+          <Message>Order is empty</Message>
         ) : error ? (
           <Message>{error?.data?.message || error.error}</Message>
         ) : (

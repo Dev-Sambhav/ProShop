@@ -7,6 +7,19 @@ import Message from "./Message";
 import FormContainer from "./FormContainer";
 import SpinLoader from "./SpinLoader";
 import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
 import CheckoutSteps from "./CheckoutSteps";
 
-export { Header, Footer, Product, Rating, Loader, Message, FormContainer, SpinLoader, PrivateRoute, CheckoutSteps };
+export {
+  Header,
+  Footer,
+  Product,
+  Rating,
+  Loader,
+  Message,
+  FormContainer,
+  SpinLoader,
+  PrivateRoute,
+  CheckoutSteps,
+  AdminRoute,
+};
