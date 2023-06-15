@@ -23,15 +23,15 @@ export const getSingleProduct = asyncHandler(async (req, res) => {
 // access Private/Admin
 export const createProduct = asyncHandler(async (req, res) => {
   const product = new Product({
-    name: 'Sample name',
+    name: "Sample name",
     price: 0,
     user: req.user._id,
-    image: '/images/sample.jpg',
-    brand: 'Sample brand',
-    category: 'Sample category',
+    image: "/images/sample.jpg",
+    brand: "Sample brand",
+    category: "Sample category",
     countInStock: 0,
     numReviews: 0,
-    description: 'Sample description',
+    description: "Sample description",
   });
 
   const createdProduct = await product.save();
@@ -56,6 +56,20 @@ export const updateProduct = asyncHandler(async (req, res) => {
 
     const updatedProduct = await product.save();
     res.status(200).json(updatedProduct);
+  } else {
+    res.status(404);
+    throw new Error("Product not found");
+  }
+});
+
+// @desc delete product
+// route DELETE api/products/:id
+// access Private/Admin
+export const deleteProduct = asyncHandler(async (req, res) => {
+  const product = await Product.findById(req.params.id);
+  if (product) {
+    await Product.deleteOne({ _id: product._id });
+    res.json({ message: "Product removed" });
   } else {
     res.status(404);
     throw new Error("Product not found");
