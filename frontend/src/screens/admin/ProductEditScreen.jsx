@@ -93,7 +93,7 @@ const ProductEditScreen = () => {
           <Message variant="danger">{error}</Message>
         ) : (
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="name">
+            <Form.Group controlId="name" className="my-2">
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
@@ -102,7 +102,7 @@ const ProductEditScreen = () => {
                 onChange={(e) => setName(e.target.value)}
               ></Form.Control>
             </Form.Group>
-            <Form.Group controlId="price">
+            <Form.Group controlId="price" className="my-2">
               <Form.Label>Price</Form.Label>
               <Form.Control
                 type="number"
@@ -111,7 +111,7 @@ const ProductEditScreen = () => {
                 onChange={(e) => setPrice(e.target.value)}
               ></Form.Control>
             </Form.Group>
-            <Form.Group controlId="image">
+            <Form.Group controlId="image" className="my-2">
               <Form.Label>Image</Form.Label>
               <Form.Control
                 type="text"
@@ -126,7 +126,7 @@ const ProductEditScreen = () => {
               ></Form.Control>
               {uploadLoading && <SpinLoader />}
             </Form.Group>
-            <Form.Group controlId="brand">
+            <Form.Group controlId="brand" className="my-2">
               <Form.Label>Brand</Form.Label>
               <Form.Control
                 type="text"
@@ -135,7 +135,7 @@ const ProductEditScreen = () => {
                 onChange={(e) => setBrand(e.target.value)}
               ></Form.Control>
             </Form.Group>
-            <Form.Group controlId="countInStock">
+            <Form.Group controlId="countInStock" className="my-2">
               <Form.Label>Count In Stock</Form.Label>
               <Form.Control
                 type="number"
@@ -144,7 +144,7 @@ const ProductEditScreen = () => {
                 onChange={(e) => setCountInStock(e.target.value)}
               ></Form.Control>
             </Form.Group>
-            <Form.Group controlId="category">
+            <Form.Group controlId="category" className="my-2">
               <Form.Label>Category</Form.Label>
               <Form.Control
                 type="text"
@@ -153,7 +153,7 @@ const ProductEditScreen = () => {
                 onChange={(e) => setCategory(e.target.value)}
               ></Form.Control>
             </Form.Group>
-            <Form.Group controlId="description">
+            <Form.Group controlId="description" className="my-2">
               <Form.Label>Description</Form.Label>
               <Form.Control
                 type="text"
@@ -168,7 +168,7 @@ const ProductEditScreen = () => {
               <Button
                 type="submit"
                 variant="primary"
-                style={{ marginTop: "1rem" }}
+                style={{ marginTop: ".5rem" }}
               >
                 Update
               </Button>
