@@ -1,6 +1,7 @@
 import express from "express";
 import {
   createProduct,
+  createProductReview,
   deleteProduct,
   getAllProducts,
   getSingleProduct,
@@ -16,11 +17,14 @@ productRoutes
   .get(getAllProducts)
   .post(protect, admin, createProduct);
 
-// fetch single product or update product
+// fetch single product or update product or delete product
 productRoutes
   .route("/:id")
   .get(getSingleProduct)
   .put(protect, admin, updateProduct)
   .delete(protect, admin, deleteProduct);
+
+// create a review
+productRoutes.route("/:id/reviews").post(protect, createProductReview);
 
 export default productRoutes;
