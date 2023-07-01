@@ -1,9 +1,13 @@
 import { Row, Col } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 import { SpinLoader, Message, Product } from "../components";
 import { useGetProductsQuery } from "../slices/productsApiSlice";
 import { useEffect } from "react";
 const HomeScreen = () => {
-  const { data: products, isLoading, error, refetch } = useGetProductsQuery();
+  const { pageNumber } = useParams();
+  const { data, isLoading, error, refetch } = useGetProductsQuery({
+    pageNumber,
+  });
   useEffect(() => {
     refetch();
   }, [refetch]);
@@ -21,8 +25,8 @@ const HomeScreen = () => {
         <>
           <h1>Latest Products</h1>
           <Row>
-            {products &&
-              products.map((product) => (
+            {data.products &&
+              data.products.map((product) => (
                 <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                   <Product product={product} />
                 </Col>
