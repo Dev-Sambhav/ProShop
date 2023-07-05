@@ -9,6 +9,7 @@ import SpinLoader from "./SpinLoader";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import CheckoutSteps from "./CheckoutSteps";
+import Paginate from "./Paginate";
 
 export {
   Header,
@@ -22,4 +23,5 @@ export {
   PrivateRoute,
   CheckoutSteps,
   AdminRoute,
+  Paginate,
 };

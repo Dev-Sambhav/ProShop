@@ -8,9 +8,14 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import { Message, SpinLoader } from "../../components";
 import { LinkContainer } from "react-router-bootstrap";
 import { toast } from "react-toastify";
+import { useParams } from "react-router-dom";
+import { Paginate } from "../../components";
 
 const ProductListScreen = () => {
-  const { data: products, isLoading, error, refetch } = useGetProductsQuery();
+  const { pageNumber } = useParams();
+  const { data, isLoading, error, refetch } = useGetProductsQuery({
+    pageNumber,
+  });
   const [createProduct, { isLoading: createLoading }] =
     useCreateProductMutation();
   const [deleteProduct, { isLoading: deleteLoading }] =
@@ -33,7 +38,7 @@ const ProductListScreen = () => {
     if (window.confirm("Are you sure")) {
       try {
         await deleteProduct(productId);
-        toast.success('Product deleted successfully')
+        toast.success("Product deleted successfully");
         refetch();
       } catch (error) {
         toast.error(error?.data?.message || error.error);
@@ -75,7 +80,7 @@ const ProductListScreen = () => {
               </tr>
             </thead>
             <tbody>
-              {products.map((product) => (
+              {data.products.map((product) => (
                 <tr key={product._id}>
                   <th>{product._id}</th>
                   <th>{product.name}</th>
@@ -100,6 +105,7 @@ const ProductListScreen = () => {
               ))}
             </tbody>
           </Table>
+          <Paginate pages={data.pages} page={data.currPage} isAdmin={true} />
         </>
       )}
     </>
