@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import CheckoutSteps from "./CheckoutSteps";
 import Paginate from "./Paginate";
+import SearchBox from "./SearchBox";
 
 export {
   Header,
@@ -24,4 +25,5 @@ export {
   CheckoutSteps,
   AdminRoute,
   Paginate,
+  SearchBox
 };

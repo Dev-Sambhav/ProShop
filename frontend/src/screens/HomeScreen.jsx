@@ -3,10 +3,11 @@ import { useParams } from "react-router-dom";
 import { SpinLoader, Message, Product } from "../components";
 import { useGetProductsQuery } from "../slices/productsApiSlice";
 import { useEffect } from "react";
-import {Paginate} from "../components"
+import { Paginate } from "../components";
 const HomeScreen = () => {
-  const { pageNumber } = useParams();
+  const { keyword, pageNumber } = useParams();
   const { data, isLoading, error, refetch } = useGetProductsQuery({
+    keyword,
     pageNumber,
   });
   useEffect(() => {
@@ -33,7 +34,11 @@ const HomeScreen = () => {
                 </Col>
               ))}
           </Row>
-          <Paginate pages={data.pages} page={data.currPage}/>
+          <Paginate
+            pages={data.pages}
+            page={data.currPage}
+            keyword={keyword ? keyword : ""}
+          />
         </>
       )}
     </>
