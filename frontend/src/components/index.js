@@ -12,6 +12,7 @@ import CheckoutSteps from "./CheckoutSteps";
 import Paginate from "./Paginate";
 import SearchBox from "./SearchBox";
 import ProductCarousel from "./ProductCarousel";
+import Meta from "./Meta";
 
 export {
   Header,
@@ -27,5 +28,6 @@ export {
   AdminRoute,
   Paginate,
   SearchBox,
-  ProductCarousel
+  ProductCarousel,
+  Meta
 };

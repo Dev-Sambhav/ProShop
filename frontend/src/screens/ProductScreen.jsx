@@ -16,6 +16,7 @@ import {
 } from "react-bootstrap";
 import { SpinLoader, Message, Rating } from "../components";
 import { useDispatch, useSelector } from "react-redux";
+import { Meta } from "../components";
 import { addToCart } from "../slices/cartSlice";
 const ProductScreen = () => {
   const { id: productId } = useParams();
@@ -51,7 +52,7 @@ const ProductScreen = () => {
       refetch();
       toast.success("Review created successfully");
       setRating(0);
-      setComment('');
+      setComment("");
     } catch (error) {
       toast.error(error?.data?.message || error.error);
     }
@@ -66,6 +67,7 @@ const ProductScreen = () => {
         </Message>
       ) : (
         <>
+          <Meta title={product.name} description={product.description} />
           <Link className="btn btn-light my-3 rounded" to="/">
             Go Back
           </Link>
@@ -162,43 +164,46 @@ const ProductScreen = () => {
                 ))}
                 <ListGroup.Item>
                   <h2>Write a Customer Review</h2>
-                  {reviewLoading && <SpinLoader/>}
+                  {reviewLoading && <SpinLoader />}
                   {userInfo ? (
                     <Form onSubmit={handleSubmit}>
                       <Form.Group className="my-2" controlId="rating">
                         <Form.Label>Rating</Form.Label>
                         <Form.Control
-                          as='select'
+                          as="select"
                           required
                           value={rating}
-                          onChange={(e)=>setRating(e.target.value)}>
-                            <option value=''>Select...</option>
-                            <option value='1'>1- Poor</option>
-                            <option value='2'>2- Fair</option>
-                            <option value='3'>3- Good</option>
-                            <option value='4'>4- Very Good</option>
-                            <option value='5'>5- Excellent</option>
-                          </Form.Control>
+                          onChange={(e) => setRating(e.target.value)}
+                        >
+                          <option value="">Select...</option>
+                          <option value="1">1- Poor</option>
+                          <option value="2">2- Fair</option>
+                          <option value="3">3- Good</option>
+                          <option value="4">4- Very Good</option>
+                          <option value="5">5- Excellent</option>
+                        </Form.Control>
                       </Form.Group>
                       <Form.Group className="my-2" controlId="comment">
                         <Form.Label>Comment</Form.Label>
                         <Form.Control
-                          as='textarea'
-                          rows='3'
+                          as="textarea"
+                          rows="3"
                           required
                           value={comment}
-                          onChange={(e)=>setComment(e.target.value)}
+                          onChange={(e) => setComment(e.target.value)}
                         ></Form.Control>
                       </Form.Group>
                       <Button
                         disabled={reviewLoading}
                         type="submit"
-                        value='primary'
-                      >Submit</Button>
+                        value="primary"
+                      >
+                        Submit
+                      </Button>
                     </Form>
                   ) : (
                     <Message>
-                      Please <Link to='/login'>Sign In</Link> to write a review.
+                      Please <Link to="/login">Sign In</Link> to write a review.
                     </Message>
                   )}
                 </ListGroup.Item>

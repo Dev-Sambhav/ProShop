@@ -4,7 +4,8 @@ import { SpinLoader, Message, Product } from "../components";
 import { useGetProductsQuery } from "../slices/productsApiSlice";
 import { useEffect } from "react";
 import { Paginate } from "../components";
-import {ProductCarousel} from "../components";
+import { ProductCarousel } from "../components";
+import { Meta } from "../components";
 const HomeScreen = () => {
   const { keyword, pageNumber } = useParams();
   const { data, isLoading, error, refetch } = useGetProductsQuery({
@@ -33,6 +34,7 @@ const HomeScreen = () => {
         </div>
       ) : (
         <>
+          <Meta />
           <h1>Latest Products</h1>
           <Row>
             {data.products &&
