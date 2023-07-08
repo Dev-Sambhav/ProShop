@@ -7,8 +7,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { Provider } from "react-redux";
-import "./assets/styles/index.css";
 import "./assets/styles/bootstrap.min.css";
+import "./assets/styles/index.css";
 import App from "./App";
 import {
   CartScreen,

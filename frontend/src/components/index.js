@@ -11,6 +11,7 @@ import AdminRoute from "./AdminRoute";
 import CheckoutSteps from "./CheckoutSteps";
 import Paginate from "./Paginate";
 import SearchBox from "./SearchBox";
+import ProductCarousel from "./ProductCarousel";
 
 export {
   Header,
@@ -25,5 +26,6 @@ export {
   CheckoutSteps,
   AdminRoute,
   Paginate,
-  SearchBox
+  SearchBox,
+  ProductCarousel
 };

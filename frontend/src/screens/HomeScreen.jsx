@@ -1,9 +1,10 @@
 import { Row, Col } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { SpinLoader, Message, Product } from "../components";
 import { useGetProductsQuery } from "../slices/productsApiSlice";
 import { useEffect } from "react";
 import { Paginate } from "../components";
+import {ProductCarousel} from "../components";
 const HomeScreen = () => {
   const { keyword, pageNumber } = useParams();
   const { data, isLoading, error, refetch } = useGetProductsQuery({
@@ -15,6 +16,13 @@ const HomeScreen = () => {
   }, [refetch]);
   return (
     <>
+      {!keyword ? (
+        <ProductCarousel />
+      ) : (
+        <Link to="/" className="btn btn-light mb-3">
+          Go Back
+        </Link>
+      )}
       {isLoading ? (
         <SpinLoader />
       ) : error ? (

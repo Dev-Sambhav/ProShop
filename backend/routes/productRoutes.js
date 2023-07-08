@@ -6,6 +6,7 @@ import {
   getAllProducts,
   getSingleProduct,
   updateProduct,
+  getTopProducts
 } from "../controllers/productController.js";
 import { protect, admin } from "../middleware/authMiddleware.js";
 
@@ -16,6 +17,9 @@ productRoutes
   .route("/")
   .get(getAllProducts)
   .post(protect, admin, createProduct);
+
+// fetch top rated products
+productRoutes.get('/top',getTopProducts);
 
 // fetch single product or update product or delete product
 productRoutes
