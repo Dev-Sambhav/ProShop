@@ -9,7 +9,8 @@
     "client": "npm run start --prefix frontend",
     "data:import": "node backend/seeder",
     "data:destroy": "node backend/seeder -d",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "Sambhav Sharma",
   "license": "ISC",
