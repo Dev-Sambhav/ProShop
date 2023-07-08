@@ -1,4 +1,4 @@
-import { Header, Footer } from "./components";
+import { Header, Footer, ScrollToTop } from "./components";
 import "./App.css";
 import {ToastContainer} from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css'
@@ -11,6 +11,7 @@ function App() {
       <main className="py-3">
         <Container>
           <Outlet/>
+          <ScrollToTop />
         </Container>
       </main>
       <Footer/>
