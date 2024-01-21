@@ -29,6 +29,8 @@ app.get("/api/config/paypal", (req, res) => {
   res.send({ clientId: process.env.PAYPAL_CLIENT_ID });
 });
 
+// --------Deployment Start---------
+
 if (process.env.NODE_ENV === "production") {
   const __dirname = path.resolve();
   app.use("/uploads", express.static("/var/data/uploads"));
@@ -44,6 +46,8 @@ if (process.env.NODE_ENV === "production") {
     res.send('API is running...')
   })
 }
+
+// --------Deployment End---------
 
 app.use(notFound);
 app.use(errorHandler);
