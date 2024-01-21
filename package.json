@@ -10,7 +10,8 @@
     "data:import": "node backend/seeder",
     "data:destroy": "node backend/seeder -d",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "frontend-install": "npm install --prefix frontend"
   },
   "author": "Sambhav Sharma",
   "license": "ISC",
